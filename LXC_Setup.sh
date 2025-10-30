@@ -7,7 +7,7 @@ set -e
 apt update && apt upgrade -y
 
 # Install required packages
-apt install -y curl ssh-import-id
+apt install -y curl ssh-import-id 
 
 # Prompt for username
 echo "============================================"
