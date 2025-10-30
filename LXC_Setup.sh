@@ -25,6 +25,10 @@ mkdir -p /home/svc_docker/{scripts,logs,config}
 chown -R svc_docker:svc_docker /home/svc_docker/{scripts,logs,config}
 chmod 755 /home/svc_docker/{scripts,logs,config}
 
+# Add user to sudoers group
+echo "Adding svc_docker to sudoers..."
+usermod -aG sudo svc_docker
+
 # Import SSH keys from GitHub for the user
 echo "============================================"
 echo "Import SSH keys from GitHub for svc_docker"
@@ -41,8 +45,5 @@ else
     echo "Skipping SSH key import."
 fi
 
-# Optionally, you can add the user to the docker group if Docker is installed later
-# usermod -aG docker svc_docker
-
-echo "Setup complete. User 'svc_docker' created with password and directories."
+echo "Setup complete. User 'svc_docker' created with password, directories, and sudo privileges."
 ``
